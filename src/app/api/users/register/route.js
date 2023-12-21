@@ -16,7 +16,7 @@ export async function POST(request, response) {
       });
     }
     const _user = await prisma.user.findFirst({
-      where: { username, password },
+      where: { username },
     });
     if (_user) {
       return NextResponse.json({

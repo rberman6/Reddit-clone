@@ -1,8 +1,10 @@
 import Link from "next/link.js";
 import { fetchUser } from "@/lib/fetchUser.js";
 import Logout from "./Logout.jsx";
+import ToggleBtn from "./ToggleBtn.jsx";
 
 export default async function Navbar() {
+  // prisma fetch call the user from the DB
   const user = await fetchUser();
 
   return (
@@ -56,12 +58,14 @@ export default async function Navbar() {
             </>
           )}
         </ul>
+        {/* if the user is logged in (i.e. they have a valid token in their cookir) I want to say welcome with their name */}
         {user.id && (
           <>
+            <span className="italic">Welcome {user.username}</span>
             <Logout />
-            <span>Welcome {user.username}</span>
           </>
         )}
+        <ToggleBtn />
       </nav>
     </header>
   );

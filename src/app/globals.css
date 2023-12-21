@@ -33,6 +33,10 @@
   background-color: #b33203;
 }
 
+.italic {
+  font-style: italic;
+}
+
 /* Modal styles */
 
 #register-section,
@@ -127,6 +131,43 @@
 .login-link:hover {
   color: #4c5557;
 }
+
+/* Toggle button styles  */
+.dark {
+  background-color: #000;
+  color: white;
+}
+
+.toggle-container {
+  position: relative;
+  width: 60px;
+  height: 30px;
+  background-color: #ddd;
+  border-radius: 15px;
+  cursor: pointer;
+  overflow: hidden;
+}
+
+.toggle-inner {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 50%;
+  height: 100%;
+  background-color: #333;
+  border-radius: 15px;
+  transition: transform 0.3s ease;
+}
+
+input[type="checkbox"] {
+  visibility: hidden;
+}
+
+/* Used psuedo-class targeting the checkbox when its checked */
+input[type="checkbox"]:checked + .toggle-container .toggle-inner {
+  transform: translateX(100%);
+}
+
 /* MEDIA QUERIES */
 
 /* MOBILE responsive layout */

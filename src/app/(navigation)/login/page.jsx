@@ -6,25 +6,32 @@ export default function Login() {
   const [username, setUserName] = useState("");
   const [password, setPassword] = useState("");
   const [showLoginForm, setShowLoginForm] = useState(true);
+  const [error, setError] = useState("");
   const router = useRouter();
 
   async function handleLogin(e) {
     e.preventDefault();
-    console.log(username, password);
-    // const response = await fetch(`/api/users/login`, {
-    //   method: "POST",
-    //   body: JSON.stringify({
-    //     username,
-    //     password,
-    //   }),
-    // });
-    // const info = await response.json();
-    // console.log(info);
+    const response = await fetch(`/api/users/login`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        username,
+        password,
+      }),
+    });
+    const info = await response.json();
+    if (info.error) {
+      return setError(info.error);
+    }
+    console.log(info);
+    router.push("/");
+    router.refresh();
   }
 
   function handleCloseLogin() {
     setShowLoginForm(false);
     router.push("/");
+    router.refresh();
   }
 
   return (
@@ -50,6 +57,7 @@ export default function Login() {
               onChange={(e) => setPassword(e.target.value)}
             />
             <button className="form-btn">Login</button>
+            <p>{error}</p>
           </form>
         </div>
       )}
