@@ -1,11 +1,14 @@
-"use client";
 import Link from "next/link.js";
+import { fetchUser } from "@/lib/fetchUser.js";
+import Logout from "./Logout.jsx";
 
-export default function Navbar() {
+export default async function Navbar() {
+  const user = await fetchUser();
+
   return (
-    <nav>
-      <ul id="navbar">
-        <li>
+    <header id="header" className="wrapper">
+      <nav id="navbar">
+        <div className="logo">
           <Link href={"/"}>
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -35,36 +38,31 @@ export default function Navbar() {
               </g>
             </svg>
           </Link>
-        </li>
-        <li className="hamburger">
-          <div>
-            <svg
-              fill="#000000"
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 50 50"
-              width="40px"
-              height="40px"
-            >
-              <path d="M 0 9 L 0 11 L 50 11 L 50 9 Z M 0 24 L 0 26 L 50 26 L 50 24 Z M 0 39 L 0 41 L 50 41 L 50 39 Z" />
-            </svg>
-          </div>
-        </li>
-
-        <li>
-          <Link href={"/subreddits"}>Subreddits</Link>
-        </li>
-        <li>
-          <Link href={"/login"}>Login</Link>
-        </li>
-        <li>
-          <Link className="sign-up-link" href={"/register"}>
-            Sign Up
-          </Link>
-        </li>
-        <li>
-          <Link href={"/logout"}>Logout</Link>
-        </li>
-      </ul>
-    </nav>
+        </div>
+        <ul className="nav-links">
+          <li>
+            <Link href={"/subreddits"}>Subreddits</Link>
+          </li>
+          {!user.id && (
+            <>
+              <li>
+                <Link href={"/login"}>Login</Link>
+              </li>
+              <li>
+                <Link className="sign-up-link" href={"/register"}>
+                  Sign Up
+                </Link>
+              </li>
+            </>
+          )}
+        </ul>
+        {user.id && (
+          <>
+            <Logout />
+            <span>Welcome {user.username}</span>
+          </>
+        )}
+      </nav>
+    </header>
   );
 }

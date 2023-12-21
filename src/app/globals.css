@@ -3,21 +3,21 @@
 #navbar {
   padding: 0;
   margin: 0;
-  list-style: none;
   display: flex;
   gap: 10px;
   justify-content: space-between;
   align-items: center;
+  border-bottom: solid 1px #e2e7e9;
 }
 
-#navbar li a {
+.nav-links {
+  display: flex;
+  list-style: none;
+  gap: 45px;
+}
+
+.nav-links li a {
   text-decoration: none;
-}
-
-.hamburger {
-  display: none; /* Hide on desktop */
-  cursor: pointer;
-  font-size: 1.5rem;
 }
 
 .sign-up-link {
@@ -40,19 +40,19 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 50vh;
+  height: 70vh;
 }
 
 .modal-form {
   width: 30%;
-  height: 80%;
+  height: 60vh;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
   gap: 30px;
   padding: 30px 25px;
-  border: solid 1px rgb(142, 142, 142);
+  border: solid 1px #cdd2d4;
   border-radius: 30px;
   box-shadow: 0px 0px 31px -2px rgba(142, 142, 142, 0.76);
   animation: fadeIn 1s, slideIn 0.8s linear;
@@ -103,7 +103,6 @@
   border-radius: 30px;
   border: none;
   font-size: 15px;
-  margin-bottom: 40px;
 }
 
 .form-btn:hover {
@@ -112,6 +111,7 @@
 }
 
 .close-btn {
+  margin-top: 40px;
   border-radius: 30px;
   border: none;
   padding: 7px 12px;
@@ -119,6 +119,14 @@
   cursor: pointer;
 }
 
+.register-text {
+  padding: 10px;
+  margin-bottom: 45px;
+}
+
+.login-link:hover {
+  color: #4c5557;
+}
 /* MEDIA QUERIES */
 
 /* MOBILE responsive layout */
@@ -127,18 +135,33 @@
   #login-section {
     height: 80vh;
   }
-
-  .modal-form {
-    width: auto;
-    height: auto;
-  }
-
-  .hamburger {
-    display: block; /* Show on mobile */
-  }
 }
 
 /* BASE STYLES */
+.wrapper {
+  width: 90%;
+  max-width: 1260px;
+  margin: 0 auto;
+}
+
+ul,
+li,
+a,
+p,
+h1,
+h2,
+h3,
+h4 input {
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
+  transition: 0.3s;
+}
 html {
   line-height: 1.15;
   -ms-text-size-adjust: 100%;

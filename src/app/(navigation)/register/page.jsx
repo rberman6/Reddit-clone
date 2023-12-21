@@ -1,17 +1,19 @@
 "use client";
 import { useState } from "react";
 import { useRouter } from "next/navigation.js";
+import Link from "next/link.js";
 
 export default function Register() {
   const [newUsername, setNewUsername] = useState("");
   const [newPassword, setNewPassword] = useState("");
   const [showRegisterForm, setShowRegisterForm] = useState(true);
+  const [error, setError] = useState("");
   const router = useRouter();
 
   async function handleRegister(e) {
     e.preventDefault();
     console.log(newUsername, newPassword);
-    const response = await fetch(`api/users/register`, {
+    const response = await fetch(`/api/users/register`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
@@ -20,6 +22,9 @@ export default function Register() {
       }),
     });
     const info = await response.json();
+    if (info.error) {
+      return setError(info.error);
+    }
     console.log(info);
     router.push("/");
   }
@@ -55,6 +60,13 @@ export default function Register() {
               type="password"
             />
             <button className="form-btn">Register</button>
+            <p className="register-text">
+              Already a redditor?{" "}
+              <Link href={"/login"} className="login-link">
+                Login
+              </Link>
+            </p>
+            <p>{error}</p>
           </form>
         </div>
       )}

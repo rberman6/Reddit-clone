@@ -11,7 +11,7 @@ export default function Login() {
   async function handleLogin(e) {
     e.preventDefault();
     console.log(username, password);
-    // const response = await fetch(`api/users/login`, {
+    // const response = await fetch(`/api/users/login`, {
     //   method: "POST",
     //   body: JSON.stringify({
     //     username,
@@ -19,7 +19,7 @@ export default function Login() {
     //   }),
     // });
     // const info = await response.json();
-    console.log(info);
+    // console.log(info);
   }
 
   function handleCloseLogin() {
