@@ -58,7 +58,7 @@ export default async function Navbar() {
             </>
           )}
         </ul>
-        {/* if the user is logged in (i.e. they have a valid token in their cookir) I want to say welcome with their name */}
+        {/* if the user is logged in (i.e. they have a valid token in their cookie) I want to say welcome with their name */}
         {user.id && (
           <>
             <span className="italic">Welcome {user.username}</span>

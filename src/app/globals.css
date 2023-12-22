@@ -122,18 +122,29 @@
   background-color: #e2e7e9;
   cursor: pointer;
 }
+.move-to-right {
+  margin-left: auto;
+}
 
-.register-text {
+.register-text,
+.login-text {
   padding: 10px;
   margin-bottom: 45px;
 }
 
-.login-link:hover {
-  color: #4c5557;
+.login-link,
+.register-link {
+  text-decoration: underline;
+}
+
+.login-link:hover,
+.register-link:hover {
+  color: #949a9b;
+  cursor: pointer;
 }
 
 /* Toggle button styles  */
-.dark {
+.dark-mode {
   background-color: #000;
   color: white;
 }

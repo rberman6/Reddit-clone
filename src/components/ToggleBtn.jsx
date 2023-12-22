@@ -1,9 +1,21 @@
 "use client";
+import { useEffect, useState } from "react";
 
 export default function ToggleBtn() {
+  const [isDarkMode, setIsDarkMode] = useState(false);
+
   function handleToggleClick() {
-    console.log("click");
+    setIsDarkMode(!isDarkMode);
   }
+
+  useEffect(() => {
+    const body = document.querySelector("body");
+    if (isDarkMode) {
+      body.classList.add("dark-mode");
+    } else {
+      body.classList.remove("dark-mode");
+    }
+  }, [isDarkMode]);
 
   return (
     <>

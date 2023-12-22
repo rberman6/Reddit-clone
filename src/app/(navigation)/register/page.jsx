@@ -40,12 +40,14 @@ export default function Register() {
       {showRegisterForm && (
         <div className="modal-form">
           <button
-            className="close-btn"
+            className="close-btn move-to-right"
             type="button"
             onClick={handleCloseRegister}
           >
             X
           </button>
+
+          <h2>Sign Up</h2>
           <form className="sign-up-form" onSubmit={handleRegister}>
             <input
               className="input-field"

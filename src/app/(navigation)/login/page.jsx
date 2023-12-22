@@ -1,7 +1,7 @@
 "use client";
 import { useState } from "react";
 import { useRouter } from "next/navigation.js";
-
+import Link from "next/link.js";
 export default function Login() {
   const [username, setUserName] = useState("");
   const [password, setPassword] = useState("");
@@ -38,9 +38,13 @@ export default function Login() {
     <section id="login-section">
       {showLoginForm && (
         <div className="modal-form">
-          <button className="close-btn" onClick={handleCloseLogin}>
+          <button
+            className="close-btn move-to-right"
+            onClick={handleCloseLogin}
+          >
             X
           </button>
+          <h2>Login</h2>
           <form className="login-form" onSubmit={handleLogin}>
             <input
               className="input-field"
@@ -57,6 +61,12 @@ export default function Login() {
               onChange={(e) => setPassword(e.target.value)}
             />
             <button className="form-btn">Login</button>
+            <p className="login-text">
+              New to Reddit?{" "}
+              <Link href={"/register"} className="register-link">
+                Sign up
+              </Link>
+            </p>
             <p>{error}</p>
           </form>
         </div>
