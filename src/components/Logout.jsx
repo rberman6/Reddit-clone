@@ -12,6 +12,7 @@ export default function Logout() {
         const info = await response.json();
         router.refresh();
       }}
+      // return to the home page after logging out
       href={"/"}
     >
       Logout

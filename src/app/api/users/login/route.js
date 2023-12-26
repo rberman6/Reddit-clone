@@ -23,7 +23,7 @@ export async function POST(request, response) {
       });
     }
 
-    // verify their password matches in the DB
+    // verify their password sent from front end reqest matches the hashed password in the DB
     const isPasswordVerified = await bcrypt.compare(password, user.password);
     // if the user's username and/or password doesnt match from the DB
     if (!isPasswordVerified) {
