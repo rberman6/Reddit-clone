@@ -7,13 +7,14 @@ export async function POST(request, response) {
     const { name } = await request.json();
     // fetch the user from the database so you can link the user with the subreddit
     const user = await fetchUser();
+    // if no subreddit name entered add error handling
     if (!name) {
       return NextResponse.json({
         success: false,
         error: "You must enter a community name",
       });
     }
-    // check if subreddit exists
+    // check if same subreddit already exists
     const subRedditExists = await prisma.subreddit.findFirst({
       where: { name },
     });

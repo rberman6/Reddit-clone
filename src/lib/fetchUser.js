@@ -14,8 +14,10 @@ export async function fetchUser() {
     const { userId } = jwt.verify(userCookie.value, process.env.JWT_SECRET);
     // we can send a request to the db to fetch this user
     const user = await prisma.user.findFirst({ where: { id: userId } });
-    delete user.password;
-    return user;
+    if (user) {
+      delete user.password;
+    }
+    return user || {};
   } catch (error) {
     console.log(error);
     return {};

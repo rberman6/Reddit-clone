@@ -2,6 +2,7 @@ import Link from "next/link.js";
 import { fetchUser } from "@/lib/fetchUser.js";
 import Logout from "./Logout.jsx";
 import ToggleBtn from "./ToggleBtn.jsx";
+import CreatePostBtn from "./CreatePostBtn.jsx";
 
 export default async function Navbar() {
   // prisma fetch call the user from the DB
@@ -65,6 +66,7 @@ export default async function Navbar() {
             <Logout />
           </>
         )}
+        <CreatePostBtn />
         <ToggleBtn />
       </nav>
     </header>
