@@ -19,10 +19,10 @@ export default function ToggleBtn() {
 
   return (
     <>
-      <input type="checkbox" id="theme-switcher" />
+      {/* <input type="checkbox" id="theme-switcher" />
       <label htmlFor="theme-switcher" className="toggle-container">
         <div onClick={handleToggleClick} className="toggle-inner"></div>
-      </label>
+      </label> */}
     </>
   );
 }

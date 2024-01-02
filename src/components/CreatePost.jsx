@@ -4,6 +4,7 @@ import { useRouter } from "next/navigation.js";
 import { useState } from "react";
 
 export default function CreatePost({ subreddits }) {
+  // subredditId is stored in subreddit state
   const [title, setTitle] = useState("");
   const [message, setMessage] = useState("");
   const [subreddit, setSubreddit] = useState("");
@@ -33,6 +34,7 @@ export default function CreatePost({ subreddits }) {
     } else {
       setTitle("");
       setMessage("");
+      //   subreddit is state that contains subredditid
       router.push(`/subreddits/${subreddit}`);
       router.refresh();
     }

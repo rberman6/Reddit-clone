@@ -7,7 +7,6 @@ export default function CreatePostBtn() {
   const router = useRouter();
 
   function handleClickCreate() {
-    console.log("click");
     router.refresh();
   }
 
