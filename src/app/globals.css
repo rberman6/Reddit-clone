@@ -222,7 +222,7 @@ input[type="checkbox"]:checked + .toggle-container .toggle-inner {
 
 .subreddit-item {
   margin-bottom: 15px;
-  padding-left: 10px;
+  padding: 10px;
 }
 
 .subreddit-item:hover {
@@ -354,7 +354,70 @@ input[type="checkbox"]:checked + .toggle-container .toggle-inner {
   font-size: 13px;
 }
 
-/* *************** DELETE & EDIT BUTTON STYLES */
+/*************** CREATE POST STYLES **********/
+.create-post-container {
+  background-color: #dae0e6;
+  padding: 35px 50px;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.create-post-title {
+  font-weight: 400;
+  margin-bottom: 20px;
+}
+#post-form-container {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  width: 60vw;
+  border-top: solid 1px #ffff;
+  padding-top: 20px;
+}
+
+.subreddit-dropdown {
+  border-radius: 3px;
+  border: none;
+  padding: 10px 25px;
+  width: 40%;
+  color: darkgrey;
+  background-color: white;
+}
+
+.new-post-input-container {
+  background-color: white;
+  padding: 15px;
+  border-radius: 3px;
+}
+
+.input-flex {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  border-bottom: solid 1px #edeff1;
+  padding-bottom: 20px;
+}
+
+.post-input-title,
+.post-input-text {
+  color: rgb(123, 122, 122);
+  border-radius: 3px;
+  border: solid 1px #edeff1;
+  padding: 10px 25px;
+}
+
+.post-input-text {
+  height: 30vh;
+}
+
+.post-btn-container {
+  display: flex;
+  gap: 5px;
+  justify-content: flex-end;
+  margin-top: 20px;
+}
+/************** DELETE & EDIT BUTTON STYLES ***********/
 .delete-btn,
 .edit-btn {
   margin-top: 20px;
@@ -403,6 +466,7 @@ h4 input {
   margin: 0;
   padding: 0;
 }
+h3,
 p {
   font-family: Noto Sans, sans-serif;
   line-height: 1.5;

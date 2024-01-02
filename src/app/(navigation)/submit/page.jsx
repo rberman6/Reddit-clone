@@ -8,8 +8,7 @@ export default async function Submit() {
   const subreddits = await prisma.subreddit.findMany();
 
   return (
-    <section>
-      <h2>Create post</h2>
+    <section id="create-post-section" className="create-post-container">
       <CreatePost subreddits={subreddits} />
     </section>
   );

@@ -42,16 +42,18 @@ export default function CreatePost({ subreddits }) {
 
   return (
     <>
-      <h2>Form for post</h2>
-      <div id="post-form-container">
-        <form onSubmit={handleSubmit}>
+      <h3 className="create-post-title">Create a post</h3>
+      <div>
+        <form id="post-form-container" onSubmit={handleSubmit}>
           <select
-            name=""
+            className="subreddit-dropdown"
             id=""
             value={subreddit}
             onChange={(e) => setSubreddit(e.target.value)}
           >
-            <option value="">Choose a subreddit</option>
+            <option value="" disabled>
+              Choose a community
+            </option>
             {subreddits.map((subreddit) => {
               return (
                 <option key={subreddit.id} value={subreddit.id}>
@@ -60,25 +62,29 @@ export default function CreatePost({ subreddits }) {
               );
             })}
           </select>
-          <input
-            className="post-input"
-            placeholder="Title"
-            type="text"
-            value={title}
-            onChange={(e) => setTitle(e.target.value)}
-          />
-          <input
-            className="post-input"
-            placeholder="Text (required)"
-            type="text"
-            value={message}
-            onChange={(e) => setMessage(e.target.value)}
-          />
-          <div className="post-btn-container">
-            <button onClick={handleClickClear}>Clear</button>
-            <button type="submit">Post</button>
+          <div className="new-post-input-container">
+            <div className="input-flex">
+              <input
+                className="post-input-title"
+                placeholder="Title"
+                type="text"
+                value={title}
+                onChange={(e) => setTitle(e.target.value)}
+              />
+              <input
+                className="post-input-text"
+                placeholder="Text (required)"
+                type="text"
+                value={message}
+                onChange={(e) => setMessage(e.target.value)}
+              />
+            </div>
+            <div className="post-btn-container">
+              <button onClick={handleClickClear}>Clear</button>
+              <button type="submit">Post</button>
+            </div>
+            <p>{error}</p>
           </div>
-          <p>{error}</p>
         </form>
       </div>
     </>

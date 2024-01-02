@@ -41,8 +41,8 @@ export default async function Subreddit({ params }) {
         <h2 className="subreddit-id-title">r/{subreddit.name}</h2>
       </div>
       {posts.map((post) => (
-        <div className="subreddit-main-container">
-          <div key={post.id} className="subreddit-post-container">
+        <div key={post.id} className="subreddit-main-container">
+          <div className="subreddit-post-container">
             <div className="profile-icon-container">
               <p className="posted-by-text">Posted by </p>
               <span>
