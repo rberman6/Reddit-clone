@@ -2,29 +2,45 @@
 import { useState } from "react";
 import { useRouter } from "next/navigation.js";
 
-export default function ReplyPost({ subredditId }) {
-  const [text, setText] = useState("");
-  const [subreddit, setSubreddit] = useState(subredditId);
+export default function ReplyPost({ postId, subredditId }) {
+  const [message, setMessage] = useState("");
+  const [error, setError] = useState();
   const router = useRouter();
 
   // POST/posts
-  function handleSubmit(e) {
+  async function handleSubmit(e) {
     e.preventDefault();
-    console.log("submit");
+    const response = await fetch(`/api/posts`, {
+      method: "POST",
+      body: JSON.stringify({
+        message: message,
+        subredditId,
+        parentId: postId,
+      }),
+    });
+    const data = await response.json();
+    if (!data.success) {
+      setError(data.error);
+    } else {
+      setMessage("");
+      router.refresh();
+    }
   }
+
   return (
     <>
       <form onSubmit={handleSubmit} className="comment-form">
         <input
           type="text"
-          value={text}
+          value={message}
           className="comment-input"
           placeholder="Add a comment"
-          onChange={(e) => setText(e.target.value)}
+          onChange={(e) => setMessage(e.target.value)}
         />
         <button className="comment-btn" type="submit">
           Comment
         </button>
+        <p>{error}</p>
       </form>
     </>
   );

@@ -36,6 +36,41 @@
   font-style: italic;
 }
 
+/*************** HOME PAGE STYLES *****************/
+#homepage {
+  margin-top: 30px;
+  display: flex;
+  gap: 20px;
+  border-bottom: solid 1px #e2e7e9;
+}
+
+.subreddit-item {
+  list-style: none;
+}
+
+.display-subreddits {
+  border-right: solid 1px #e2e7e9;
+  padding-right: 45px;
+}
+
+.display-posts {
+  padding-bottom: 20px;
+}
+
+.posts-container {
+  margin-bottom: 10px;
+  margin-top: 10px;
+  padding: 20px 15px;
+  border-bottom: solid 1px #e2e7e9;
+}
+
+.posts-container:hover {
+  background-color: #f2f4f5;
+  cursor: pointer;
+  border-radius: 20px;
+  padding: 20px 15px;
+}
+
 /**************** Modal styles ********************/
 
 #register-section,
@@ -326,6 +361,21 @@ input[type="checkbox"]:checked + .toggle-container .toggle-inner {
 
 .subreddit-main-container {
   border-bottom: solid 1px #e2e7e9;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  margin-left: 30px;
+}
+.votes-container {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.react-icon {
+  font-size: 25px;
+}
+.react-icon:hover {
+  color: #b33203;
 }
 
 .subreddit-post-container {
@@ -347,7 +397,7 @@ input[type="checkbox"]:checked + .toggle-container .toggle-inner {
   margin-bottom: 10px;
 }
 .post-title {
-  margin-bottom: 18px;
+  margin-bottom: 10px;
 }
 .posted-by-text {
   font-size: 13px;
@@ -445,6 +495,10 @@ input[type="checkbox"]:checked + .toggle-container .toggle-inner {
   padding-top: 2px;
 }
 
+/************** VOTES CONTAINER  **************/
+.votes-container {
+  border-radius: 30px;
+}
 /************* COMMENT STYLES *****************/
 
 #comment-section {
@@ -467,11 +521,12 @@ input[type="checkbox"]:checked + .toggle-container .toggle-inner {
   display: flex;
   align-items: center;
   margin-top: -10px;
-  margin-bottom: 10px;
+  margin-bottom: 20px;
 }
 
 .subreddit-hdg-comment {
   font-weight: 700;
+  margin-bottom: 3px;
 }
 
 .post-message {
@@ -492,6 +547,11 @@ input[type="checkbox"]:checked + .toggle-container .toggle-inner {
   border-radius: 20px;
   border: solid 1px #c0c1c2;
   padding-left: 15px;
+}
+
+.comment-input:hover {
+  border: solid 1px #9a9b9c;
+  box-shadow: 0px 0px 21px -4px rgba(154, 155, 156, 0.77);
 }
 .comment-btn {
   width: fit-content;
@@ -523,6 +583,10 @@ input[type="checkbox"]:checked + .toggle-container .toggle-inner {
   border: solid 1px #d0d0d1;
   border-radius: 20px;
   margin-left: 40px;
+}
+
+.comments-container:hover {
+  box-shadow: 0px 0px 21px -4px rgba(154, 155, 156, 0.77);
 }
 
 .comment-text {

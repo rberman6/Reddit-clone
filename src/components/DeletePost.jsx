@@ -1,12 +1,13 @@
 "use client";
 import { useRouter } from "next/navigation.js";
 
-export default function DeletePost({ post }) {
+export default function DeletePost({ post, subredditId }) {
   const router = useRouter();
   async function handleClickDelete() {
     const response = await fetch(`/api/posts/${post.id}`, {
       method: "DELETE",
     });
+    router.push(`/subreddits/${subredditId}`);
     router.refresh();
   }
 

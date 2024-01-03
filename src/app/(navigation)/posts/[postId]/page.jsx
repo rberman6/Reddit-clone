@@ -1,3 +1,4 @@
+import DeletePost from "@/components/DeletePost.jsx";
 import ReplyPost from "@/components/ReplyPost.jsx";
 import { fetchUser } from "@/lib/fetchUser.js";
 import { prisma } from "@/lib/prisma.js";
@@ -140,7 +141,7 @@ export default async function Post({ params }) {
           <p className="post-message">{post.message}</p>
         </div>
         <div className="reply-box">
-          <ReplyPost subredditId={post.subredditId} />
+          <ReplyPost postId={post.id} subredditId={post.subredditId} />
         </div>
         {comments.map((comment) => {
           return (

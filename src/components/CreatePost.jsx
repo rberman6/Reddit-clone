@@ -49,6 +49,7 @@ export default function CreatePost({ subreddits }) {
             className="subreddit-dropdown"
             id=""
             value={subreddit}
+            required
             onChange={(e) => setSubreddit(e.target.value)}
           >
             <option value="" disabled>
@@ -69,6 +70,7 @@ export default function CreatePost({ subreddits }) {
                 placeholder="Title"
                 type="text"
                 value={title}
+                required
                 onChange={(e) => setTitle(e.target.value)}
               />
               <input
@@ -76,6 +78,7 @@ export default function CreatePost({ subreddits }) {
                 placeholder="Text (required)"
                 type="text"
                 value={message}
+                required
                 onChange={(e) => setMessage(e.target.value)}
               />
             </div>
