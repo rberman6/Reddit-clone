@@ -2,20 +2,19 @@
 
 import { useRouter } from "next/navigation.js";
 import { useState } from "react";
+import Link from "next/link.js";
+import { CgNotes } from "react-icons/cg";
+import { CiImageOn } from "react-icons/ci";
+import { HiLink } from "react-icons/hi2";
+import { BiPoll } from "react-icons/bi";
 
 export default function CreatePost({ subreddits }) {
   // subredditId is stored in subreddit state
   const [title, setTitle] = useState("");
   const [message, setMessage] = useState("");
   const [subreddit, setSubreddit] = useState("");
-  const [error, setError] = useState();
+  const [error, setError] = useState("");
   const router = useRouter();
-
-  function handleClickClear() {
-    setTitle("");
-    setMessage("");
-    router.refresh();
-  }
 
   async function handleSubmit(e) {
     e.preventDefault();
@@ -64,10 +63,28 @@ export default function CreatePost({ subreddits }) {
             })}
           </select>
           <div className="new-post-input-container">
+            <div className="tab-container">
+              <div className="tab">
+                <CgNotes />
+                <h5>Post</h5>
+              </div>
+              <div className="tab">
+                <CiImageOn />
+                <h5>Image & Video</h5>
+              </div>
+              <div className="tab">
+                <HiLink />
+                <h5>Link</h5>
+              </div>
+              <div className="tab">
+                <BiPoll />
+                <h5>Poll</h5>
+              </div>
+            </div>
             <div className="input-flex">
               <input
                 className="post-input-title"
-                placeholder="Title"
+                placeholder="Title (required)"
                 type="text"
                 value={title}
                 required
@@ -83,10 +100,14 @@ export default function CreatePost({ subreddits }) {
               />
             </div>
             <div className="post-btn-container">
-              <button onClick={handleClickClear}>Clear</button>
-              <button type="submit">Post</button>
+              <Link href={"/"}>
+                <button className="clear-post-btn">Cancel</button>
+              </Link>
+              <button className="create-post-btn" type="submit">
+                Post
+              </button>
             </div>
-            <p>{error}</p>
+            <p className="error-msg">{error}</p>
           </div>
         </form>
       </div>

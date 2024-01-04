@@ -7,6 +7,13 @@ export async function POST(request, response) {
     const { name } = await request.json();
     // fetch the user from the database so you can link the user with the subreddit
     const user = await fetchUser();
+    if (!user.id) {
+      return NextResponse.json({
+        success: false,
+        error: "You must login/register to create a subreddit",
+      });
+    }
+
     // if no subreddit name entered add error handling
     if (!name) {
       return NextResponse.json({

@@ -1,4 +1,4 @@
-/***************** Navigation styles ***************/
+/***************** NAVIGATION STYLES ***************/
 #navbar {
   padding: 0;
   margin: 0;
@@ -17,6 +17,11 @@
 
 .nav-links li a {
   text-decoration: none;
+}
+
+.nav-links li:hover {
+  cursor: pointer;
+  color: #b33203;
 }
 
 .sign-up-link {
@@ -71,7 +76,7 @@
   padding: 20px 15px;
 }
 
-/**************** Modal styles ********************/
+/**************** MODAL STYLES ********************/
 
 #register-section,
 #login-section {
@@ -163,7 +168,6 @@
 .register-text,
 .login-text {
   padding: 10px;
-  margin-bottom: 45px;
 }
 
 .login-link,
@@ -177,10 +181,30 @@
   cursor: pointer;
 }
 
-/********************* Toggle button styles  ********************/
+.error-reg-login-msg {
+  margin-bottom: 10px;
+}
+
+/********************* TOGGLE STYLES BUTTON  ********************/
 .dark-mode {
   background-color: #000;
   color: white;
+}
+
+.dark-mode h2 {
+  color: white;
+}
+
+.dark-mode .subreddit-item:hover {
+  background-color: #b33203;
+}
+
+.dark-mode .subreddit-main-container:hover {
+  background-color: #000000;
+}
+
+.dark-mode .posts-container:hover {
+  background-color: #0000;
 }
 
 .toggle-container {
@@ -359,35 +383,39 @@ input[type="checkbox"]:checked + .toggle-container .toggle-inner {
   font-size: 34px;
 }
 
+.subreddit-icon {
+  font-size: 50px;
+}
+
 .subreddit-main-container {
   border-bottom: solid 1px #e2e7e9;
   display: flex;
   align-items: center;
   gap: 20px;
   margin-left: 30px;
+  padding-left: 30px;
 }
+.subreddit-main-container:hover {
+  background-color: #f2f4f5;
+  border-radius: 20px;
+  padding-left: 30px;
+}
+
 .votes-container {
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 12px;
 }
 .react-icon {
   font-size: 25px;
 }
 .react-icon:hover {
-  color: #b33203;
+  color: #c93804;
 }
 
 .subreddit-post-container {
   margin-bottom: 20px;
   margin-top: 20px;
-  padding: 20px 15px;
-}
-
-.subreddit-post-container:hover {
-  background-color: #f2f4f5;
-  cursor: pointer;
-  border-radius: 20px;
   padding: 20px 15px;
 }
 
@@ -426,7 +454,7 @@ input[type="checkbox"]:checked + .toggle-container .toggle-inner {
 }
 
 .subreddit-dropdown {
-  border-radius: 3px;
+  border-radius: 4px;
   border: none;
   padding: 10px 25px;
   width: 40%;
@@ -436,16 +464,48 @@ input[type="checkbox"]:checked + .toggle-container .toggle-inner {
 
 .new-post-input-container {
   background-color: white;
-  padding: 15px;
-  border-radius: 3px;
+  padding-bottom: 20px;
+  border-radius: 4px;
 }
 
+.tab-container {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  border-bottom: solid 1px #edeff1;
+  margin-bottom: 10px;
+}
+
+.tab {
+  flex: 1;
+  text-align: center;
+  border-right: solid 1px #edeff1;
+  color: darkgrey;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 4px;
+}
+
+.tab:last-child {
+  border-right: none;
+}
+.tab:nth-child(1):hover {
+  color: #0045ac;
+  cursor: pointer;
+}
+.tab:nth-child(2):hover,
+.tab:nth-child(3):hover,
+.tab:last-child:hover {
+  color: #0045ac;
+  cursor: not-allowed;
+}
 .input-flex {
   display: flex;
   flex-direction: column;
   gap: 7px;
   border-bottom: solid 1px #edeff1;
-  padding-bottom: 20px;
+  padding: 20px 15px;
 }
 
 .post-input-title,
@@ -462,9 +522,32 @@ input[type="checkbox"]:checked + .toggle-container .toggle-inner {
 
 .post-btn-container {
   display: flex;
-  gap: 5px;
+  gap: 8px;
   justify-content: flex-end;
   margin-top: 20px;
+  margin-right: 15px;
+}
+
+.clear-post-btn,
+.create-post-btn {
+  background-color: #dbdfe0;
+  color: black;
+  padding: 12px 20px;
+  border-radius: 30px;
+  border: none;
+  font-size: 15px;
+  cursor: pointer;
+}
+
+.clear-post-btn:hover,
+.create-post-btn:hover {
+  background-color: #0045ac;
+  color: white;
+}
+
+.error-msg {
+  margin-left: 10px;
+  color: rgb(123, 122, 122);
 }
 /************** DELETE, EDIT & REPLY BUTTON STYLES ***********/
 .delete-btn,
@@ -495,10 +578,6 @@ input[type="checkbox"]:checked + .toggle-container .toggle-inner {
   padding-top: 2px;
 }
 
-/************** VOTES CONTAINER  **************/
-.votes-container {
-  border-radius: 30px;
-}
 /************* COMMENT STYLES *****************/
 
 #comment-section {

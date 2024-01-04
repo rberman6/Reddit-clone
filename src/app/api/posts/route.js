@@ -8,6 +8,15 @@ export async function POST(request, response) {
     const { title, message, subredditId, parentId } = await request.json();
 
     const user = await fetchUser();
+
+    // if user is not logged in
+    if (!user.id) {
+      return NextResponse.json({
+        success: false,
+        error: "You must login/register to create a post.",
+      });
+    }
+
     // if no user selects a subreddit
     if (!subredditId) {
       return NextResponse.json({
@@ -15,7 +24,7 @@ export async function POST(request, response) {
         error: "You must select a subreddit",
       });
     }
-    // if no title or message exist
+    // if no message exists
     if (!message) {
       return NextResponse.json({
         success: false,

@@ -21,7 +21,7 @@ export async function POST(request, response) {
     if (_user) {
       return NextResponse.json({
         success: false,
-        error: "Username already exists. Please login",
+        error: "This Username already exists. Please login.",
       });
     }
     // hash the password

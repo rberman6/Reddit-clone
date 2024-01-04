@@ -69,7 +69,7 @@ export default function Register() {
                 Login
               </Link>
             </p>
-            <p>{error}</p>
+            <p className="error-reg-login-msg">{error}</p>
           </form>
         </div>
       )}

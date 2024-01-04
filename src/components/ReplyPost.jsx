@@ -40,7 +40,7 @@ export default function ReplyPost({ postId, subredditId }) {
         <button className="comment-btn" type="submit">
           Comment
         </button>
-        <p>{error}</p>
+        <p className="error-reg-login-msg">{error}</p>
       </form>
     </>
   );

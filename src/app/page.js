@@ -6,6 +6,7 @@ export default async function Home() {
     <main className="wrapper">
       <section id="homepage">
         <div className="display-subreddits">
+          <h2 className="subreddit-heading">Topics</h2>
           <DisplaySubreddits />
         </div>
         <div className="display-posts">
