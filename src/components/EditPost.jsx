@@ -8,7 +8,6 @@ export default function EditPost({ post, subreddit }) {
   const [error, setError] = useState();
 
   const router = useRouter();
-  console.log(post);
 
   async function handleSubmitEdit(e) {
     e.preventDefault();

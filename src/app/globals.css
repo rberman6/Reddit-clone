@@ -63,13 +63,17 @@
 }
 
 .posts-container {
+  border-bottom: solid 1px #e2e7e9;
+  padding: 12px 0;
+}
+
+.post-container {
   margin-bottom: 10px;
   margin-top: 10px;
   padding: 20px 15px;
-  border-bottom: solid 1px #e2e7e9;
 }
 
-.posts-container:hover {
+.post-container:hover {
   background-color: #f2f4f5;
   cursor: pointer;
   border-radius: 20px;
@@ -203,7 +207,7 @@
   background-color: #000000;
 }
 
-.dark-mode .posts-container:hover {
+.dark-mode .post-container:hover {
   background-color: #0000;
 }
 
@@ -237,7 +241,7 @@ input[type="checkbox"]:checked + .toggle-container .toggle-inner {
   transform: translateX(100%);
 }
 
-/*************** Subreddit styles ****************/
+/*************** SUBREDDIT STYLES ****************/
 #subreddit-section {
   border-bottom: solid 1px #e2e7e9;
 }
@@ -404,13 +408,19 @@ input[type="checkbox"]:checked + .toggle-container .toggle-inner {
 .votes-container {
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  align-items: center;
+  gap: 6px;
 }
-.react-icon {
-  font-size: 25px;
+.up-arrow-icon,
+.down-arrow-icon {
+  font-size: 23px;
 }
-.react-icon:hover {
+.up-arrow-icon:hover {
   color: #c93804;
+}
+
+.down-arrow-icon:hover {
+  color: #a069e8;
 }
 
 .subreddit-post-container {
@@ -592,6 +602,16 @@ input[type="checkbox"]:checked + .toggle-container .toggle-inner {
   width: 60vw;
 }
 
+.post-vote-container {
+  display: flex;
+  align-items: center;
+  gap: 25px;
+}
+
+.vote-arrow {
+  margin-top: 40px;
+}
+
 .post-comment {
   border-bottom: solid 1px #edeff1;
   padding-bottom: 25px;
@@ -605,7 +625,7 @@ input[type="checkbox"]:checked + .toggle-container .toggle-inner {
 
 .subreddit-hdg-comment {
   font-weight: 700;
-  margin-bottom: 3px;
+  margin-bottom: 5px;
 }
 
 .post-message {
