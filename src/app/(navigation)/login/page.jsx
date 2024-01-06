@@ -2,6 +2,7 @@
 import { useState } from "react";
 import { useRouter } from "next/navigation.js";
 import Link from "next/link.js";
+import { AiOutlineClose } from "react-icons/ai";
 export default function Login() {
   const [username, setUserName] = useState("");
   const [password, setPassword] = useState("");
@@ -38,12 +39,9 @@ export default function Login() {
     <section id="login-section">
       {showLoginForm && (
         <div className="modal-form">
-          <button
-            className="close-btn move-to-right"
-            onClick={handleCloseLogin}
-          >
-            X
-          </button>
+          <div className="close-btn move-to-right" onClick={handleCloseLogin}>
+            <AiOutlineClose />
+          </div>
           <h2>Login</h2>
           <form className="login-form" onSubmit={handleLogin}>
             <input

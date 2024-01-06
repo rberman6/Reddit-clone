@@ -14,8 +14,8 @@ export default async function Post({ params }) {
   });
 
   return (
-    <>
+    <section className="edit-post-container">
       <EditPost subreddit={subreddit} post={post} />
-    </>
+    </section>
   );
 }

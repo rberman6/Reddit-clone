@@ -1,6 +1,7 @@
 "use client";
 import { useState } from "react";
 import { useRouter } from "next/navigation.js";
+import { AiOutlineClose } from "react-icons/ai";
 
 export default function CreateSubreddit() {
   const [subredditName, setSubredditName] = useState("");
@@ -58,6 +59,9 @@ export default function CreateSubreddit() {
         <div className="create-subreddit-modal">
           <form onSubmit={handleSubmit}>
             <div className="subreddit-modal-container">
+              <div className="close-btn" onClick={handleClickClose}>
+                <AiOutlineClose />
+              </div>
               <div className="create-border">
                 <div className="modal-heading">
                   <img
@@ -67,9 +71,6 @@ export default function CreateSubreddit() {
                   />
                   <h4>Create a community</h4>
                 </div>
-                <h4 className="close-btn" onClick={handleClickClose}>
-                  X
-                </h4>
               </div>
               <label htmlFor="">Name:</label>
               <input

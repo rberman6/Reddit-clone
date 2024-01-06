@@ -35,26 +35,35 @@ export default function EditPost({ post, subreddit }) {
 
   return (
     <>
-      <form onSubmit={handleSubmitEdit}>
-        <input
-          className="post-input"
-          placeholder="Title"
-          type="text"
-          value={title}
-          onChange={(e) => setTitle(e.target.value)}
-        />
-        <input
-          className="post-input"
-          placeholder="Text (required)"
-          type="text"
-          value={message}
-          onChange={(e) => setMessage(e.target.value)}
-        />
-        <div className="post-btn-container">
-          <button onClick={handleClickClear}>Clear</button>
-          <button type="submit">Post</button>
+      <form id="edit-form-container" onSubmit={handleSubmitEdit}>
+        <h3 className="edit-post-title">Edit post</h3>
+        <div className="edit-form-box">
+          <input
+            className="post-input"
+            placeholder="Title"
+            type="text"
+            value={title}
+            onChange={(e) => setTitle(e.target.value)}
+          />
+          <input
+            className="post-input-text"
+            placeholder="Text (required)"
+            type="text"
+            value={message}
+            onChange={(e) => setMessage(e.target.value)}
+          />
+          <div className="edit-border">
+            <div className="post-btn-container">
+              <button className="clear-btn" onClick={handleClickClear}>
+                Clear
+              </button>
+              <button className="save-btn" type="submit">
+                Save
+              </button>
+            </div>
+          </div>
+          <p>{error}</p>
         </div>
-        <p>{error}</p>
       </form>
     </>
   );

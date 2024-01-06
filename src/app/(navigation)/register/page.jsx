@@ -2,6 +2,7 @@
 import { useState } from "react";
 import { useRouter } from "next/navigation.js";
 import Link from "next/link.js";
+import { AiOutlineClose } from "react-icons/ai";
 
 export default function Register() {
   const [newUsername, setNewUsername] = useState("");
@@ -39,13 +40,13 @@ export default function Register() {
     <section id="register-section">
       {showRegisterForm && (
         <div className="modal-form">
-          <button
+          <div
             className="close-btn move-to-right"
             type="button"
             onClick={handleCloseRegister}
           >
-            X
-          </button>
+            <AiOutlineClose />
+          </div>
 
           <h2>Sign Up</h2>
           <form className="sign-up-form" onSubmit={handleRegister}>
