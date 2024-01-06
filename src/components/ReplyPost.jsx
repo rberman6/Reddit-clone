@@ -1,6 +1,7 @@
 "use client";
 import { useState } from "react";
 import { useRouter } from "next/navigation.js";
+import Link from "next/link.js";
 
 export default function ReplyPost({ postId, subredditId }) {
   const [message, setMessage] = useState("");
@@ -37,9 +38,14 @@ export default function ReplyPost({ postId, subredditId }) {
           placeholder="Add a comment"
           onChange={(e) => setMessage(e.target.value)}
         />
-        <button className="comment-btn" type="submit">
-          Comment
-        </button>
+        <div className="replypost-btn-container">
+          <Link href={`/subreddits/${subredditId}`}>
+            <button className="comment-btn">Cancel</button>
+          </Link>
+          <button className="comment-btn" type="submit">
+            Comment
+          </button>
+        </div>
         <p className="error-reg-login-msg">{error}</p>
       </form>
     </>

@@ -7,9 +7,7 @@ import { prisma } from "@/lib/prisma.js";
 
 export default async function Post({ params }) {
   const date = currentDate();
-  // fetch the post and post id from DB
   const user = await fetchUser();
-
   const { postId } = params;
 
   const post = await prisma.post.findFirst({
@@ -22,7 +20,7 @@ export default async function Post({ params }) {
       },
     },
   });
-  console.log(post);
+  // console.log(post);
 
   const comments = await prisma.post.findMany({
     where: {
