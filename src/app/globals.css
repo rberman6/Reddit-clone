@@ -736,6 +736,18 @@ input[type="checkbox"]:checked + .toggle-container .toggle-inner {
   #login-section {
     height: 80vh;
   }
+  /* modal styles */
+  .modal-form {
+    width: 85%;
+    height: 55vh;
+  }
+  /* subreddit page */
+  #subreddit-section {
+    padding-bottom: 20px;
+  }
+  .side-border {
+    border-right: none;
+  }
 }
 
 /***************** BASE STYLES ************************/
