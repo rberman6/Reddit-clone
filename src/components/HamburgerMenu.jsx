@@ -35,7 +35,10 @@ export default function HamburgerMenu({ user }) {
               </div>
             </li>
             <li>
-              <div onClick={() => navigateAndCloseMenu("/subreddits")}>
+              <div
+                className="dark-links"
+                onClick={() => navigateAndCloseMenu("/subreddits")}
+              >
                 Subreddits
               </div>
             </li>

@@ -246,6 +246,31 @@
   background-color: #0000;
 }
 
+.dark-mode .mobile-menu-container {
+  background-color: #000;
+}
+.dark-mode .create-post-btn-container {
+  background-color: black;
+  border-radius: 30px;
+}
+
+.dark-mode .create-post-btn-container:hover {
+  background-color: #b33203;
+  border-radius: 30px;
+}
+
+.dark-mode #create-post-section {
+  background-color: #000;
+}
+
+.dark-mode .hover-container:hover {
+  background-color: black;
+}
+
+.dark-mode .edit-post-container {
+  background-color: #000;
+}
+
 .toggle-container {
   position: relative;
   width: 60px;
