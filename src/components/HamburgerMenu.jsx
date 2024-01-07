@@ -6,13 +6,17 @@ import CreatePostBtn from "./CreatePostBtn.jsx";
 import Logout from "./Logout.jsx";
 import { FaReddit } from "react-icons/fa";
 import { useRouter } from "next/navigation.js";
-import { Router } from "next/router.js";
+import { AiOutlineClose } from "react-icons/ai";
 
 export default function HamburgerMenu({ user }) {
   const [isOpen, setIsOpen] = useState(false);
   const router = useRouter();
 
   function handleHamburgerClick() {
+    setIsOpen(!isOpen);
+  }
+
+  function handleClickClose() {
     setIsOpen(!isOpen);
   }
 
@@ -28,6 +32,9 @@ export default function HamburgerMenu({ user }) {
       </div>
       {isOpen && (
         <div className="mobile-menu-container">
+          <div className="close-btn" onClick={handleClickClose}>
+            <AiOutlineClose />
+          </div>
           <ul className="nav-links">
             <li>
               <div onClick={() => navigateAndCloseMenu("/")}>
