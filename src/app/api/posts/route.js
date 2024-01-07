@@ -13,7 +13,7 @@ export async function POST(request, response) {
     if (!user.id) {
       return NextResponse.json({
         success: false,
-        error: "You must login/register to create a post.",
+        error: "You must login/register to post.",
       });
     }
 

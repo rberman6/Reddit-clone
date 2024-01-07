@@ -23,7 +23,7 @@ export async function DELETE(request, response) {
   }
 }
 
-// PUT /posts/:postId
+// PUT /posts/:postId - edit post
 export async function PUT(request, response) {
   try {
     const { postId } = response.params;

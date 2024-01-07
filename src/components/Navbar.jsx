@@ -3,6 +3,8 @@ import { fetchUser } from "@/lib/fetchUser.js";
 import Logout from "./Logout.jsx";
 import ToggleBtn from "./ToggleBtn.jsx";
 import CreatePostBtn from "./CreatePostBtn.jsx";
+import { FaReddit } from "react-icons/fa";
+import HamburgerMenu from "./HamburgerMenu.jsx";
 
 export default async function Navbar() {
   // prisma fetch call the user from the DB
@@ -14,6 +16,7 @@ export default async function Navbar() {
         <div className="logo">
           <Link href={"/"}>
             <svg
+              className="desktop-logo"
               xmlns="http://www.w3.org/2000/svg"
               height="80"
               width="160"
@@ -40,34 +43,42 @@ export default async function Navbar() {
                 />
               </g>
             </svg>
+            <div className="mobile-icon">
+              <FaReddit className="show-mobile" />
+            </div>
           </Link>
         </div>
-        <ul className="nav-links">
-          <li>
-            <Link href={"/subreddits"}>Subreddits</Link>
-          </li>
-          {!user.id && (
+        <div className="desktop-menu-container">
+          <ul className="nav-links">
+            <li>
+              <Link href={"/subreddits"}>Subreddits</Link>
+            </li>
+            {!user.id && (
+              <>
+                <li>
+                  <Link href={"/login"}>Login</Link>
+                </li>
+                <li>
+                  <Link className="sign-up-link" href={"/register"}>
+                    Sign Up
+                  </Link>
+                </li>
+              </>
+            )}
+          </ul>
+
+          {/* if the user is logged in (i.e. they have a valid token in their cookie) I want to say welcome with their name */}
+          {user.id && (
             <>
-              <li>
-                <Link href={"/login"}>Login</Link>
-              </li>
-              <li>
-                <Link className="sign-up-link" href={"/register"}>
-                  Sign Up
-                </Link>
-              </li>
+              <span className="italic">Welcome {user.username}</span>
+              <Logout />
             </>
           )}
-        </ul>
-        {/* if the user is logged in (i.e. they have a valid token in their cookie) I want to say welcome with their name */}
-        {user.id && (
-          <>
-            <span className="italic">Welcome {user.username}</span>
-            <Logout />
-          </>
-        )}
-        <CreatePostBtn />
+          <CreatePostBtn />
+        </div>
         <ToggleBtn />
+
+        <HamburgerMenu user={user} />
       </nav>
     </header>
   );

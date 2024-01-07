@@ -7,6 +7,37 @@
   justify-content: space-between;
   align-items: center;
   border-bottom: solid 1px #e2e7e9;
+  position: relative;
+}
+
+.mobile-menu-container {
+  display: none;
+  background-color: white;
+  border: solid 1px #cdd2d4;
+  box-shadow: 0px 0px 31px -2px rgba(142, 142, 142, 0.76);
+  height: 50vh;
+  width: 80vw;
+  padding: 40px 20px;
+  margin-left: -15px;
+}
+
+.desktop-menu-container {
+  display: flex;
+  align-items: center;
+  gap: 25px;
+}
+
+.show-mobile {
+  display: none;
+}
+
+.mobile-hamburger {
+  display: none;
+  font-size: 30px;
+  cursor: pointer;
+}
+.hamburger-icon {
+  font-size: 38px;
 }
 
 .nav-links {
@@ -35,6 +66,10 @@
 
 .sign-up-link:hover {
   background-color: #b33203;
+}
+
+.logout:hover {
+  color: #b33203;
 }
 
 .italic {
@@ -372,6 +407,9 @@ input[type="checkbox"]:checked + .toggle-container .toggle-inner {
   background-color: #dbdfe0;
   border-radius: 20px;
 }
+#subreddit-id {
+  margin-bottom: 50px;
+}
 
 .subreddit-title {
   margin-top: 30px;
@@ -655,7 +693,7 @@ input[type="checkbox"]:checked + .toggle-container .toggle-inner {
 
 .subreddit-hdg-comment {
   font-weight: 700;
-  margin-bottom: 5px;
+  margin-bottom: 8px;
 }
 
 .post-message {
@@ -731,7 +769,53 @@ input[type="checkbox"]:checked + .toggle-container .toggle-inner {
 /***************** MEDIA QUERIES *********************/
 
 /* MOBILE responsive layout */
-@media (max-width: 424px) {
+@media (max-width: 810px) {
+  /* Navbar mobile styles */
+  #navbar {
+    padding: 15px 0;
+  }
+  .desktop-logo {
+    display: none;
+  }
+  .show-mobile {
+    font-size: 48px;
+    color: #ff4500;
+    display: block;
+  }
+  .mobile-hamburger {
+    display: block;
+  }
+  .mobile-menu-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+    position: absolute;
+    top: 0;
+    left: 0; /* Move it off the screen initially */
+    animation: slideLeft 0.5s ease-out;
+  }
+
+  @keyframes slideLeft {
+    0% {
+      left: -100px;
+      opacity: 0;
+    }
+    100% {
+      left: 0;
+      opacity: 1;
+    }
+  }
+
+  .nav-links {
+    flex-direction: column;
+    align-items: center;
+    gap: 35px;
+  }
+
+  .desktop-menu-container {
+    display: none;
+  }
   #register-section,
   #login-section {
     height: 80vh;
@@ -741,12 +825,125 @@ input[type="checkbox"]:checked + .toggle-container .toggle-inner {
     width: 85%;
     height: 55vh;
   }
+  /* Homepage  */
+  #homepage {
+    flex-direction: column;
+    margin-top: 0;
+  }
+
+  .display-subreddits {
+    border-right: none;
+    border-bottom: solid 1px #e2e7e9;
+    padding-bottom: 10px;
+  }
+
+  .posts-container {
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+
+  .post-container {
+    margin-top: 8px;
+  }
+  /* create & edit post page  */
+  #create-post-section {
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  .edit-post-container {
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  #post-form-container,
+  #edit-form-container {
+    width: 90vw;
+  }
+
+  .subreddit-dropdown {
+    width: 100%;
+  }
+  .post-btn-container {
+    justify-content: center;
+  }
   /* subreddit page */
   #subreddit-section {
     padding-bottom: 20px;
   }
   .side-border {
     border-right: none;
+  }
+  /* post page */
+  .subreddit-title {
+    justify-content: center;
+    margin-top: 20px;
+    padding-bottom: 20px;
+  }
+  .subreddit-id-title {
+    font-size: 25px;
+  }
+  .subreddit-icon {
+    font-size: 30px;
+  }
+  .subreddit-post-container {
+    padding-top: 0;
+    padding-bottom: 0;
+    padding-right: 0;
+    padding-left: 10px;
+    margin-top: 10px;
+    margin-bottom: 20px;
+  }
+  .hover-container {
+    flex-direction: column-reverse;
+    align-items: center;
+    margin-left: 0px;
+    padding-left: 0;
+    padding-bottom: 10px;
+    margin-top: 10px;
+  }
+
+  .hover-container:hover {
+    padding-left: 0;
+  }
+  .votes-container {
+    flex-direction: row;
+    align-items: center;
+    margin-left: 20px;
+    margin-top: -20px;
+  }
+  .edit-delete-btn-container {
+    margin-top: 0;
+  }
+  .edit-btn,
+  .delete-btn,
+  .reply-btn {
+    margin-top: 15px;
+  }
+  .up-arrow-icon {
+    margin-bottom: 2px;
+  }
+  /* comment section */
+  .post-comment-container {
+    width: 90vw;
+  }
+  .post-vote-container {
+    flex-direction: column-reverse;
+    align-items: center;
+    gap: 0;
+  }
+  .post-comment {
+    padding-bottom: 15px;
+  }
+
+  .comment-form {
+    align-items: center;
+  }
+  .comment-input {
+    padding-left: 10px;
+  }
+  .comment-input {
+    width: 100%;
   }
 }
 
