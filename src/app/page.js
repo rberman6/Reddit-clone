@@ -1,5 +1,6 @@
 import DisplayPosts from "@/components/DisplayPosts.jsx";
 import DisplaySubreddits from "@/components/DisplaySubreddits.jsx";
+export const dynamic = "force-dynamic";
 
 export default async function Home() {
   return (
