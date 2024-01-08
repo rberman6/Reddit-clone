@@ -608,6 +608,10 @@ input[type="checkbox"]:checked + .toggle-container .toggle-inner {
   padding: 10px 25px;
 }
 
+.post-input-title {
+  height: 7vh;
+}
+
 .post-input-text {
   height: 30vh;
   margin-bottom: 10px;
@@ -773,8 +777,8 @@ input[type="checkbox"]:checked + .toggle-container .toggle-inner {
 }
 
 .date {
-  font-size: 13px;
-  color: #4c5557;
+  font-size: 12px;
+  color: #9b9c9d;
 }
 .comments-container {
   min-height: 13vh;
